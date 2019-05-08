@@ -11,18 +11,18 @@ namespace Smart.Core.Infra.Mapping
             builder.ToTable("TB_CATEGORIA");
 
             builder.HasKey(e => e.Codigo);
-            builder.Property(e => e.Codigo).HasColumnName("CD_CATEGORIA");
-           //builder.Property(e => e.Codigo).HasColumnType("INT");
+            builder.Property(e => e.Codigo).HasColumnName("CD_CATEGORIA")
+                .HasMaxLength(3)
+                .ValueGeneratedOnAdd();
 
-            builder.Property(e => e.Nome).HasColumnName("NOME");
-            builder.HasIndex(e => e.Nome).HasName("NOME");
-            builder.Property(e => e.Nome)
+            builder.Property(e => e.Nome).HasColumnName("NOME")
                 .IsRequired()
                 .HasMaxLength(30);
 
-            builder.Property(e => e.Descricao).HasColumnName("DESCRICAO");
-            builder.Property(e => e.Descricao)
-            .HasMaxLength(200);
+            builder.Property(e => e.Descricao).HasColumnName("DESCRICAO")
+                .HasMaxLength(200);
+
+            builder.HasIndex(e => e.Nome).HasName("NOME");
 
         }
     }

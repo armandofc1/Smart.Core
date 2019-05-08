@@ -5,7 +5,14 @@ namespace Smart.Core.Domain.Entities
 {
     public class TipoUsuario
     {
+        public TipoUsuario()
+        {
+            Usuarios = new HashSet<Usuario>();
+        }
+
         public int Codigo { get; set; }
         public string Tipo { get; set; }
+
+        public ICollection<Usuario> Usuarios { get; set; }
     }
 }

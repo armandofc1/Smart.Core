@@ -8,7 +8,28 @@ namespace Smart.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<PostagemCategoria> builder)
         {
+            builder.ToTable("TB_POSTAGEM_CATEGORIA");
 
+            builder.HasKey(e => new { e.PostagemCodigo, e.CategoriaCodigo })
+                    .ForSqlServerIsClustered(false);
+
+            builder.Property(e => e.PostagemCodigo).HasColumnName("CD_POSTAGEM")
+                .IsRequired()
+                .HasMaxLength(3);
+
+            builder.Property(e => e.CategoriaCodigo).HasColumnName("CD_CATEGORIA")
+                .IsRequired()
+                .HasMaxLength(9);
+
+            builder.HasOne(d => d.Postagens)
+                .WithMany(p => p.PostagemCategorias)
+                .HasForeignKey(d => d.PostagemCodigo)
+                .HasConstraintName("FK_POSTCATEGORIA_POST");
+
+            builder.HasOne(d => d.Categorias)
+                .WithMany(p => p.PostagemCategorias)
+                .HasForeignKey(d => d.CategoriaCodigo)
+                .HasConstraintName("FK_POSTCATEGORIA_CAT");
         }
     }
 }

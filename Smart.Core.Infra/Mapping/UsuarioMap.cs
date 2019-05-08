@@ -14,117 +14,65 @@ namespace Smart.Core.Infra.Mapping
             builder.HasKey(e => e.Codigo);
             builder.Property(e => e.Codigo).HasColumnName("CD_USUARIO")
                 .HasMaxLength(9)
-                .ValueGeneratedNever();
+                .ValueGeneratedOnAdd();
 
-            builder.Property(e => e.TipoUsuario.Codigo).HasColumnName("CD_TIPO_USUARIO")
+            builder.Property(e => e.TipoUsuarioCodigo).HasColumnName("CD_TIPO_USUARIO")
                 .IsRequired()
                 .HasMaxLength(3);
 
             builder.Property(e => e.DataCadastro).HasColumnName("DT_CADASTRO")
                 .IsRequired()
-                .HasColumnType("date");
+                .HasColumnType("datetime");
 
-            builder.Property(e => e.Nome).HasColumnName("NOME");
-            builder.HasIndex(e => e.Nome).HasName("NOME");
-            builder.Property(e => e.Nome)
+            builder.Property(e => e.Nome).HasColumnName("NOME")
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.Property(e => e.SobreNome).HasColumnName("SOBRENOME");
-            builder.Property(e => e.SobreNome)
+            builder.Property(e => e.SobreNome).HasColumnName("SOBRENOME")
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.Property(e => e.Nome).HasColumnName("LOGIN");
-            builder.HasIndex(e => e.Nome).HasName("LOGIN");
-            builder.Property(e => e.Nome)
-                .IsRequired()
-                .HasMaxLength(20);
-
-            builder.Property(e => e.Sexo).HasColumnName("SEXO");
-            builder.Property(e => e.Sexo)
+            builder.Property(e => e.Sexo).HasColumnName("SEXO")
                 .IsRequired()
                 .HasMaxLength(1);
 
+            builder.Property(e => e.Login).HasColumnName("LOGIN")
+                .IsRequired()
+                .HasMaxLength(20);
 
-            CD_USUARIO
-CD_TIPO_USUARIO
-DT_CADASTRO
-NOME
-SOBRENOME
-SEXO
-LOGIN
-SENHA
-EMAIL
-FOTO
-STATUS
+            builder.Property(e => e.Senha).HasColumnName("SENHA")
+                .IsRequired()
+                .HasMaxLength(20);
 
+            builder.Property(e => e.Email).HasColumnName("EMAIL")
+                .IsRequired()
+                .HasMaxLength(200);
 
+            builder.Property(e => e.Foto).HasColumnName("FOTO")
+            .HasMaxLength(255);
 
-            builder.HasKey(e => e.OrderId);
+            builder.Property(e => e.Status).HasColumnName("STATUS")
+            .IsRequired()
+            .HasMaxLength(1);
 
-                builder.HasIndex(e => e.CustomerId)
-                    .HasName("CustomersOrders");
+            builder.HasIndex(e => e.Nome).HasName("NOME");
+            builder.HasIndex(e => e.Login).HasName("LOGIN");
+            builder.HasIndex(e => e.TipoUsuarioCodigo).HasName("TIPOUSUARIO");
 
-                builder.HasIndex(e => e.EmployeeId)
-                    .HasName("EmployeesOrders");
+            builder.HasOne(d => d.TipoUsuario)
+                .WithMany(p => p.Usuarios)
+                .HasForeignKey(d => d.TipoUsuarioCodigo)
+                .HasConstraintName("FK_USUARIO_TIPO");
 
-                builder.HasIndex(e => e.OrderDate)
-                    .HasName("OrderDate");
-
-                builder.HasIndex(e => e.ShipPostalCode)
-                    .HasName("ShipPostalCode");
-
-                builder.HasIndex(e => e.ShipVia)
-                    .HasName("ShippersOrders");
-
-                builder.HasIndex(e => e.ShippedDate)
-                    .HasName("ShippedDate");
-
-                builder.Property(e => e.OrderId).HasColumnName("OrderID");
-
-                builder.Property(e => e.CustomerId)
-                    .HasColumnName("CustomerID")
-                    .HasMaxLength(5);
-
-                builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
-
-                builder.Property(e => e.Freight)
+            /*
+            builder.Property(e => e.Freight)
                     .HasColumnType("money")
                     .HasDefaultValueSql("((0))");
 
-                builder.Property(e => e.OrderDate).HasColumnType("datetime");
+                     builder.HasKey(e => new { e.OrderId, e.ProductId });
+ */
 
-                builder.Property(e => e.RequiredDate).HasColumnType("datetime");
 
-                builder.Property(e => e.ShipAddress).HasMaxLength(60);
-
-                builder.Property(e => e.ShipCity).HasMaxLength(15);
-
-                builder.Property(e => e.ShipCountry).HasMaxLength(15);
-
-                builder.Property(e => e.ShipName).HasMaxLength(40);
-
-                builder.Property(e => e.ShipPostalCode).HasMaxLength(10);
-
-                builder.Property(e => e.ShipRegion).HasMaxLength(15);
-
-                builder.Property(e => e.ShippedDate).HasColumnType("datetime");
-
-                builder.HasOne(d => d.Customer)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK_Orders_Customers");
-
-                builder.HasOne(d => d.Employee)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.EmployeeId)
-                    .HasConstraintName("FK_Orders_Employees");
-
-                builder.HasOne(d => d.ShipViaNavigation)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.ShipVia)
-                    .HasConstraintName("FK_Orders_Shippers");
-            }
+        }
     }
 }
