@@ -1,6 +1,6 @@
 using System;
 
-namespace Northwind.Core.Web.Models
+namespace Smart.Core.Web.Models
 {
     public class ErrorViewModel
     {

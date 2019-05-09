@@ -8,11 +8,13 @@ namespace Smart.Core.Domain.Entities
         public Postagem()
         {
             PostagemCategorias = new HashSet<PostagemCategoria>();
+            Comentarios = new HashSet<Comentario>();
+            Movimentacoes = new HashSet<UsuarioMovimentacao>();
         }
 
         public int Codigo { get; set; }
         public int UsuarioCodigo { get; set; }
-        public Usuario Usuario { get; set; }
+        public virtual Usuario Usuario { get; set; }
         public DateTime DataCriacao { get; set; }
         public string Titulo { get; set; }
         public string Subtitulo { get; set; }
@@ -23,7 +25,9 @@ namespace Smart.Core.Domain.Entities
         public DateTime DataFinal { get; set; }
         public string Status { get; set; }
 
-        public ICollection<PostagemCategoria> PostagemCategorias { get; set; }
+        public virtual ICollection<PostagemCategoria> PostagemCategorias { get; set; }
+        public virtual ICollection<Comentario> Comentarios { get; set; }
+        public virtual ICollection<UsuarioMovimentacao> Movimentacoes { get; set; }
 
     }
 }

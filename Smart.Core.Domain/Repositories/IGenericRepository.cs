@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Northwind.Core.Infra.Repositories
+namespace Smart.Core.Infra.Repositories
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {

@@ -13,6 +13,6 @@ namespace Smart.Core.Domain.Entities
         public int Codigo { get; set; }
         public string Nome { get; set; }
 
-        public ICollection<PerfilUsuario> PerfisUsuario { get; set; }
+        public virtual ICollection<PerfilUsuario> PerfisUsuario { get; set; }
     }
 }

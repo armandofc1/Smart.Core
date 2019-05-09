@@ -12,6 +12,7 @@ namespace Smart.Core.Infra.Mapping
 
             builder.HasKey(e => e.Codigo);
             builder.Property(e => e.Codigo).HasColumnName("CD_CATEGORIA")
+                .IsRequired()
                 .HasMaxLength(3)
                 .ValueGeneratedOnAdd();
 
@@ -22,7 +23,7 @@ namespace Smart.Core.Infra.Mapping
             builder.Property(e => e.Descricao).HasColumnName("DESCRICAO")
                 .HasMaxLength(200);
 
-            builder.HasIndex(e => e.Nome).HasName("NOME");
+            builder.HasIndex(e => e.Nome).HasName("CATG_NOME");
 
         }
     }

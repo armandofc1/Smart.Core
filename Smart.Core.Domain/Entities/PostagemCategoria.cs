@@ -6,9 +6,8 @@ namespace Smart.Core.Domain.Entities
     public class PostagemCategoria
     {
         public int PostagemCodigo { get; set; }
+        public virtual Postagem Postagens { get; set; }
         public int CategoriaCodigo { get; set; }
-
-        public Postagem Postagens { get; set; }
-        public Categoria Categorias { get; set; }
+        public virtual Categoria Categorias { get; set; }
     }
 }

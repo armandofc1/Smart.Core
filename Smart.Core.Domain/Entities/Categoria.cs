@@ -14,7 +14,7 @@ namespace Smart.Core.Domain.Entities
         public string Nome { get; set; }
         public string Descricao { get; set; }
 
-        public ICollection<PostagemCategoria> PostagemCategorias { get; set; }
-        public ICollection<UsuarioInteresseCategoria> UsuarioInteresseCategorias { get; set; }
+        public virtual ICollection<PostagemCategoria> PostagemCategorias { get; set; }
+        public virtual ICollection<UsuarioInteresseCategoria> UsuarioInteresseCategorias { get; set; }
     }
 }

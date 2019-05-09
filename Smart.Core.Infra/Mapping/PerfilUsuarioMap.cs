@@ -21,14 +21,32 @@ namespace Smart.Core.Infra.Mapping
                 .IsRequired()
                 .HasMaxLength(9);
 
-            builder.HasOne(d => d.Usuarios)
+            builder.Property(e => e.GerenciarUsuarios).HasColumnName("GERENCIAR_USUARIOS")
+                .IsRequired()
+                .HasMaxLength(1);
+
+            builder.Property(e => e.GerenciarCategorias).HasColumnName("GERENCIAR_CATEGORIAS")
+                .IsRequired()
+                .HasMaxLength(1);
+
+            builder.Property(e => e.GerenciarPostagens).HasColumnName("GERENCIAR_POSTAGENS")
+                .IsRequired()
+                .HasMaxLength(1);
+
+            builder.Property(e => e.GerenciarComentarios).HasColumnName("GERENCIAR_COMENTARIOS")
+                .IsRequired()
+                .HasMaxLength(1);
+
+            builder.HasOne(d => d.Usuario)
                 .WithMany(p => p.PerfisUsuario)
                 .HasForeignKey(d => d.UsuarioCodigo)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_PERFUSUARIO_USUA");
 
-            builder.HasOne(d => d.Perfis)
+            builder.HasOne(d => d.Perfil)
                 .WithMany(p => p.PerfisUsuario)
                 .HasForeignKey(d => d.PerfilCodigo)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_PERFUSUARIO_PERF");
         }
     }

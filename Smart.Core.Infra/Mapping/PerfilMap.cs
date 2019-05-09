@@ -11,13 +11,16 @@ namespace Smart.Core.Infra.Mapping
             builder.ToTable("TB_PERFIL");
 
             builder.HasKey(e => e.Codigo);
-            builder.Property(e => e.Codigo).HasColumnName("CD_PERFIL");
+            builder.Property(e => e.Codigo).HasColumnName("CD_PERFIL")
+                .IsRequired()
+                .HasMaxLength(3)
+                .ValueGeneratedOnAdd();
 
-            builder.Property(e => e.Nome).HasColumnName("NOME");
-            builder.HasIndex(e => e.Nome).HasName("NOME");
-            builder.Property(e => e.Nome)
+            builder.Property(e => e.Nome).HasColumnName("NOME")
                 .IsRequired()
                 .HasMaxLength(30);
+
+            builder.HasIndex(e => e.Nome).HasName("PERF_NOME");
         }
     }
 }

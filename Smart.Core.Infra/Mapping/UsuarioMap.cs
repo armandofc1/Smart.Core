@@ -13,6 +13,7 @@ namespace Smart.Core.Infra.Mapping
 
             builder.HasKey(e => e.Codigo);
             builder.Property(e => e.Codigo).HasColumnName("CD_USUARIO")
+                .IsRequired()
                 .HasMaxLength(9)
                 .ValueGeneratedOnAdd();
 
@@ -22,7 +23,9 @@ namespace Smart.Core.Infra.Mapping
 
             builder.Property(e => e.DataCadastro).HasColumnName("DT_CADASTRO")
                 .IsRequired()
-                .HasColumnType("datetime");
+                .HasColumnType("datetime")
+                .ValueGeneratedOnAdd()
+                .HasDefaultValueSql("getdate()");
 
             builder.Property(e => e.Nome).HasColumnName("NOME")
                 .IsRequired()
@@ -49,26 +52,30 @@ namespace Smart.Core.Infra.Mapping
                 .HasMaxLength(200);
 
             builder.Property(e => e.Foto).HasColumnName("FOTO")
-            .HasMaxLength(255);
+                .HasMaxLength(255);
 
             builder.Property(e => e.Status).HasColumnName("STATUS")
-            .IsRequired()
-            .HasMaxLength(1);
+                .IsRequired()
+                .HasMaxLength(1);
 
-            builder.HasIndex(e => e.Nome).HasName("NOME");
-            builder.HasIndex(e => e.Login).HasName("LOGIN");
-            builder.HasIndex(e => e.TipoUsuarioCodigo).HasName("TIPOUSUARIO");
+            builder.HasIndex(e => e.Nome).HasName("USU_NOME");
+            builder.HasIndex(e => e.Login).HasName("USU_LOGIN");
+            builder.HasIndex(e => e.TipoUsuarioCodigo).HasName("USU_TIPOUSUARIO");
+            builder.HasIndex(e => new { e.Nome, e.Login }).HasName("USU_NOME_LOGIN");
 
             builder.HasOne(d => d.TipoUsuario)
                 .WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.TipoUsuarioCodigo)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_USUARIO_TIPO");
 
             /*
             builder.Property(e => e.Freight)
                     .HasColumnType("money")
                     .HasDefaultValueSql("((0))");
-
+                    .ValueGeneratedOnAdd()
+                    .HasDefaultValueSql("getdate()");
+                    .UseSqlServerIdentityColumn()
                      builder.HasKey(e => new { e.OrderId, e.ProductId });
  */
 
