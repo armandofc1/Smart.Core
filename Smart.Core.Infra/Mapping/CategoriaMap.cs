@@ -26,5 +26,6 @@ namespace Smart.Core.Infra.Mapping
             builder.HasIndex(e => e.Nome).HasName("CATG_NOME");
 
         }
+
     }
 }

@@ -35,7 +35,7 @@ namespace Smart.Core.Infra.Context
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
             .AddJsonFile("appsettings.json")
             .Build();
- 
+
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             optionsBuilder.UseLazyLoadingProxies();
         }
@@ -54,6 +54,25 @@ namespace Smart.Core.Infra.Context
             builder.ApplyConfiguration(new UsuarioMap());
             builder.ApplyConfiguration(new UsuarioMovimentacaoMap());
             builder.ApplyConfiguration(new UsuarioPontuacaoMap());
+
+            PopularDados(builder);
         }
+
+        private void PopularDados(ModelBuilder builder)
+        {
+            builder.Entity<Categoria>().HasData(new Categoria
+            {
+                Codigo = 1,
+                Nome = "Artesenato",
+                Descricao = "Para se fazer em casa"
+            }, new Categoria
+            {
+                Codigo = 2,
+                Nome = "Tutorial",
+                Descricao = "Guia passo a passo"
+            });
+        }
+
+
     }
 }
