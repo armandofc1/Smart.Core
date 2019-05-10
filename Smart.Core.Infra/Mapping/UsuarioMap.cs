@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Smart.Core.Domain.Entities;
 
@@ -23,9 +24,7 @@ namespace Smart.Core.Infra.Mapping
 
             builder.Property(e => e.DataCadastro).HasColumnName("DT_CADASTRO")
                 .IsRequired()
-                .HasColumnType("datetime")
-                .ValueGeneratedOnAdd()
-                .HasDefaultValueSql("getdate()");
+                .HasDefaultValue(DateTime.Now);
 
             builder.Property(e => e.Nome).HasColumnName("NOME")
                 .IsRequired()
@@ -56,7 +55,8 @@ namespace Smart.Core.Infra.Mapping
 
             builder.Property(e => e.Status).HasColumnName("STATUS")
                 .IsRequired()
-                .HasMaxLength(1);
+                .HasMaxLength(1)
+                .HasDefaultValue(1);
 
             builder.HasIndex(e => e.Nome).HasName("USU_NOME");
             builder.HasIndex(e => e.Login).HasName("USU_LOGIN");
@@ -77,6 +77,10 @@ namespace Smart.Core.Infra.Mapping
                     .HasDefaultValueSql("getdate()");
                     .UseSqlServerIdentityColumn()
                      builder.HasKey(e => new { e.OrderId, e.ProductId });
+
+            builder.HasKey(e => new { e.PerfilCodigo, e.UsuarioCodigo })
+                    .ForSqlServerIsClustered(false);
+
  */
 
 

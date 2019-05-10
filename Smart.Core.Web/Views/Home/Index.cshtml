@@ -1,5 +1,7 @@
-﻿@{
+﻿@model Smart.Core.Web.ViewModel.HomeViewModel;
+@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h1 class="my-4">
     Aprender
@@ -7,105 +9,40 @@
 </h1>
 
 <div class="row">
-
-    <!-- Card 1 -->
-    <div class="col-md-4 card-container">
-        <div class="card-flip">
-            <!-- Card 1 Front -->
-            <div class="card front">
-                <div class="cover">
-                    <img src="images/rotating_card_thumb.jpg" />
+    @foreach (var post in Model.Postagens)
+    {
+        <!-- Card -->
+        <div class="col-md-4 card-container">
+            <div class="card-flip">
+                <!-- Card 1 Front -->
+                <div class="card front">
+                    <div class="cover">
+                        <img src="images/rotating_card_thumb.jpg" />
+                    </div>
+                    <div class="user">
+                        <img src="@post.Usuario.Foto" class="rounded-circle" />
+                    </div>
+                    <div class="card-block content">
+                        <h6 class="card-subtitle mb-2 text-muted">@post.Usuario.Nome</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">@@@post.Usuario.Login</h6>
+                        <h4 class="card-title">@post.Titulo</h4>
+                        <p class="card-text">@post.Subtitulo</p>
+                        <p class="card-text text-center"><small class="text-muted">@post.DataCriacao</small></p>
+                    </div>
                 </div>
-                <div class="user">
-                    <img src="images/usuarios/rotating_card_profile3.png" class="rounded-circle" />
+                <!-- End Card 1 Front -->
+                <!-- Card 1 Back -->
+                <div class="card back text-center">
+                    <div class="card-header">Resumo</div>
+                    <div class="card-block content">
+                        <h4 class="card-title">@post.Titulo</h4>
+                        <p class="card-text">@post.Resumo</p>
+                        <a href="article.html" class="btn btn-primary text-center">Leia mais</a>
+                    </div>
                 </div>
-                <div class="card-block content">
-                    <h6 class="card-subtitle mb-2 text-muted">João da Silva</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">@@jpsilva</h6>
-                    <h4 class="card-title">Qual a melhor divisão de treino?</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p class="card-text text-center"><small class="text-muted">09/04/2019</small></p>
-                </div>
+                <!-- End Card 1 Back -->
             </div>
-            <!-- End Card 1 Front -->
-            <!-- Card 1 Back -->
-            <div class="card back text-center">
-                <div class="card-header">Resumo</div>
-                <div class="card-block content">
-                    <h4 class="card-title">Qual a melhor divisão de treino?</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <a href="article.html" class="btn btn-primary text-center">Leia mais</a>
-                </div>
-            </div>
-            <!-- End Card 1 Back -->
         </div>
-    </div>
-    <!-- End Card 1 -->
-    <!-- Card 2 -->
-    <div class="col-md-4 card-container">
-        <div class="card-flip">
-            <!-- Card 2 Front -->
-            <div class="card front">
-                <div class="cover">
-                    <img src="images/rotating_card_thumb.jpg" />
-                </div>
-                <div class="user">
-                    <img src="images/usuarios/rotating_card_profile2.png" class="rounded-circle" />
-                </div>
-                <div class="card-block content">
-                    <h6 class="card-subtitle mb-2 text-muted">André Oswaldo</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">@@andreow</h6>
-                    <h4 class="card-title">Como obter fotos profissionais usando o celular?</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p class="card-text text-center"><small class="text-muted">09/04/2019</small></p>
-                </div>
-            </div>
-            <!-- End Card 2 Front -->
-            <!-- Card 2 Back -->
-            <div class="card back text-center">
-                <div class="card-header">Resumo</div>
-                <div class="card-block content">
-                    <h4 class="card-title">Como obter fotos profissionais usando o celular?</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</br>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <a href="article.html" class="btn btn-primary text-center">Leia mais</a>
-                </div>
-            </div>
-            <!-- End Card 2 Back -->
-        </div>
-    </div>
-    <!-- End Card 2 -->
-    <!-- Card 8 -->
-    <div class="col-md-4 card-container">
-        <div class="card-flip">
-            <!-- Card 8 Front -->
-            <div class="card front">
-                <div class="cover">
-                    <img src="images/rotating_card_thumb.jpg" />
-                </div>
-                <div class="user">
-                    <img src="images/usuarios/rotating_card_profile.png" class="rounded-circle" />
-                </div>
-                <div class="card-block content">
-                    <h6 class="card-subtitle mb-2 text-muted">Maria das Dores</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">@@mdores</h6>
-                    <h4 class="card-title">Aprenda a tingir o cabelo sozinho.</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur.</br> Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-                    <p class="card-text text-center"><small class="text-muted">09/04/2019</small></p>
-                </div>
-            </div>
-            <!-- End Card 8 Front -->
-            <!-- Card 8 Back -->
-            <div class="card back text-center">
-                <div class="card-header">Resumo</div>
-                <div class="card-block content">
-                    <h4 class="card-title">Aprenda a tingir o cabelo sozinho.</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <a href="article.html" class="btn btn-primary text-center">Leia mais</a>
-                </div>
-            </div>
-            <!-- End Card 8 Back -->
-        </div>
-        <!-- End Card 8 -->
-    </div>
-
+        <!-- End Card -->
+    }
 </div>

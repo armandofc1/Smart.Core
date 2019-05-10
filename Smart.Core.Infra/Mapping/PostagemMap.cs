@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Smart.Core.Domain.Entities;
 
@@ -22,9 +23,7 @@ namespace Smart.Core.Infra.Mapping
 
             builder.Property(e => e.DataCriacao).HasColumnName("DT_CRIACAO")
                 .IsRequired()
-                .HasColumnType("datetime")
-                .ValueGeneratedOnAdd()
-                .HasDefaultValueSql("getdate()");
+                .HasDefaultValue(DateTime.Now);
 
             builder.Property(e => e.Titulo).HasColumnName("TITULO")
                 .IsRequired()
@@ -42,15 +41,14 @@ namespace Smart.Core.Infra.Mapping
             builder.Property(e => e.Foto).HasColumnName("FOTO")
                 .HasMaxLength(255);
 
-            builder.Property(e => e.DataInicial).HasColumnName("DT_INICIAL")
-                .HasColumnType("datetime");
+            builder.Property(e => e.DataInicial).HasColumnName("DT_INICIAL");
 
-            builder.Property(e => e.DataFinal).HasColumnName("DT_FINAL")
-                .HasColumnType("datetime");
+            builder.Property(e => e.DataFinal).HasColumnName("DT_FINAL");
 
             builder.Property(e => e.Status).HasColumnName("STATUS")
                 .IsRequired()
-                .HasMaxLength(1);
+                .HasMaxLength(1)
+                .HasDefaultValue(1);
 
             builder.HasIndex(e => e.Titulo).HasName("POST_TITULO");
             builder.HasIndex(e => new { e.Codigo, e.UsuarioCodigo }).HasName("POST_USUARIO");

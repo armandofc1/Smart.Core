@@ -1,18 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Smart.Core.Domain.Entities;
+using Smart.Core.Infra.Context;
 using Smart.Core.Web.Models;
+using Smart.Core.Web.ViewModel;
+using System.Diagnostics;
 
 namespace Smart.Core.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly SmartContext _context;
+
+        public HomeController(SmartContext context)
         {
-            return View();
+            _context = context;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var postagens = await _context.Postagem.ToListAsync();
+            var model = new HomeViewModel {
+                Postagens = postagens
+            };
+            return View(model);
         }
 
         public IActionResult About()

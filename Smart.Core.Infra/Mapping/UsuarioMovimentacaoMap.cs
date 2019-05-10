@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Smart.Core.Domain.Entities;
 
@@ -22,9 +23,7 @@ namespace Smart.Core.Infra.Mapping
 
             builder.Property(e => e.DataCadastro).HasColumnName("DT_CADASTRO")
                 .IsRequired()
-                .HasColumnType("datetime")
-                .ValueGeneratedOnAdd()
-                .HasDefaultValueSql("getdate()");
+                .HasDefaultValue(DateTime.Now);
 
             builder.Property(e => e.UsuarioOrigemCodigo).HasColumnName("CD_USUARIO_ORIGEM")
                 .IsRequired()

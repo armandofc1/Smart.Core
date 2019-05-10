@@ -16,6 +16,7 @@ namespace Smart.Core.Infra.Context
         public DbSet<Comentario> Comentario { get; set; }
         public DbSet<Perfil> Perfil { get; set; }
         public DbSet<PerfilUsuario> PerfilUsuario { get; set; }
+        public DbSet<Postagem> Postagem { get; set; }
         public DbSet<PostagemCategoria> PostagemCategoria { get; set; }
         public DbSet<TipoMovimentacao> TipoMovimentacao { get; set; }
         public DbSet<TipoUsuario> TipoUsuario { get; set; }
@@ -119,8 +120,8 @@ namespace Smart.Core.Infra.Context
             builder.Entity<Usuario>().HasData(new Usuario
             {
                 Codigo = 1,
-                TipoUsuarioCodigo = 1,
                 DataCadastro = DateTime.Now,
+                TipoUsuarioCodigo = 1,
                 Nome = "Armando",
                 SobreNome = "Costa",
                 Sexo = "M",
@@ -132,8 +133,8 @@ namespace Smart.Core.Infra.Context
             }, new Usuario
             {
                 Codigo = 2,
-                TipoUsuarioCodigo = 3,
                 DataCadastro = DateTime.Now,
+                TipoUsuarioCodigo = 3,
                 Nome = "João",
                 SobreNome = "da Silva",
                 Sexo = "M",
@@ -145,8 +146,8 @@ namespace Smart.Core.Infra.Context
             }, new Usuario
             {
                 Codigo = 3,
-                TipoUsuarioCodigo = 3,
                 DataCadastro = DateTime.Now,
+                TipoUsuarioCodigo = 3,
                 Nome = "André",
                 SobreNome = "Oswaldo",
                 Sexo = "M",
@@ -158,8 +159,8 @@ namespace Smart.Core.Infra.Context
             }, new Usuario
             {
                 Codigo = 4,
-                TipoUsuarioCodigo = 3,
                 DataCadastro = DateTime.Now,
+                TipoUsuarioCodigo = 3,
                 Nome = "Maria",
                 SobreNome = "das Dores",
                 Sexo = "F",
@@ -171,8 +172,8 @@ namespace Smart.Core.Infra.Context
             }, new Usuario
             {
                 Codigo = 5,
-                TipoUsuarioCodigo = 3,
                 DataCadastro = DateTime.Now,
+                TipoUsuarioCodigo = 3,
                 Nome = "Martino",
                 SobreNome = "Mont",
                 Sexo = "M",
@@ -184,8 +185,8 @@ namespace Smart.Core.Infra.Context
             }, new Usuario
             {
                 Codigo = 6,
-                TipoUsuarioCodigo = 3,
                 DataCadastro = DateTime.Now,
+                TipoUsuarioCodigo = 3,
                 Nome = "Laurence",
                 SobreNome = "Correil",
                 Sexo = "F",
@@ -197,8 +198,8 @@ namespace Smart.Core.Infra.Context
             }, new Usuario
             {
                 Codigo = 7,
-                TipoUsuarioCodigo = 3,
                 DataCadastro = DateTime.Now,
+                TipoUsuarioCodigo = 3,
                 Nome = "John",
                 SobreNome = "Nida",
                 Sexo = "M",
@@ -208,8 +209,8 @@ namespace Smart.Core.Infra.Context
                 Foto = "images/usuarios/user_3.jpg",
                 Status = 1
             });
-            #endregion Ususarios
-
+            #endregion Usuarios
+            
             #region Postagens
             builder.Entity<Postagem>().HasData(new Postagem
             {
@@ -250,9 +251,9 @@ Lorem ipsum dolor sit amet,
                 nulla ? Quos cum ex quis soluta,
                 a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
                 veniam magni quis!",
-                Foto = "",
-                DataInicial = Convert.ToDateTime("01/05/2019"),
-                DataFinal = Convert.ToDateTime("31/12/2019"),
+                Foto = "images/postagens/blog-5.jpg",
+                DataInicial = new DateTime(2019, 05, 1),//Convert.ToDateTime("01/05/2019"),
+                DataFinal = new DateTime(2019, 12, 31),//Convert.ToDateTime("31/12/2019"),
                 Status = 1
             }, new Postagem
             {
@@ -293,9 +294,9 @@ Lorem ipsum dolor sit amet,
                 nulla ? Quos cum ex quis soluta,
                 a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
                 veniam magni quis!",
-                Foto = "",
-                DataInicial = Convert.ToDateTime("01/05/2019"),
-                DataFinal = Convert.ToDateTime("31/12/2019"),
+                Foto = "images/postagens/blog-5.jpg",
+                DataInicial = new DateTime(2019, 05, 1),//Convert.ToDateTime("01/05/2019"),
+                DataFinal = new DateTime(2019, 12, 31),//Convert.ToDateTime("31/12/2019"),
                 Status = 1
             }, new Postagem
             {
@@ -337,9 +338,9 @@ Lorem ipsum dolor sit amet,
                 nulla ? Quos cum ex quis soluta,
                 a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
                 veniam magni quis!",
-                Foto = "",
-                DataInicial = Convert.ToDateTime("01/05/2019"),
-                DataFinal = Convert.ToDateTime("31/12/2019"),
+                Foto = "images/postagens/blog-5.jpg",
+                DataInicial = new DateTime(2019, 05, 1),//Convert.ToDateTime("01/05/2019"),
+                DataFinal = new DateTime(2019, 12, 31),//Convert.ToDateTime("31/12/2019"),
                 Status = 1
             });
             #endregion Postagens
@@ -512,7 +513,47 @@ Lorem ipsum dolor sit amet,
             });
             #endregion Comentario
 
-    }
+            #region UsuarioMovimentacao
+            builder.Entity<UsuarioMovimentacao>().HasData(new UsuarioMovimentacao
+            {
+                Codigo = 1,
+                TipoMovimentacaoCodigo = 1,
+                DataCadastro = DateTime.Now,
+                UsuarioOrigemCodigo = 3,
+                UsuarioDestinoCodigo = 2,
+                PostagemCodigo = 1,
+                Pontos = 10
+            }, new UsuarioMovimentacao
+            {
+                Codigo = 2,
+                TipoMovimentacaoCodigo = 1,
+                DataCadastro = DateTime.Now,
+                UsuarioOrigemCodigo = 4,
+                UsuarioDestinoCodigo = 2,
+                PostagemCodigo = 1,
+                Pontos = 20
+            }, new UsuarioMovimentacao
+            {
+                Codigo = 3,
+                TipoMovimentacaoCodigo = 2,
+                DataCadastro = DateTime.Now,
+                UsuarioOrigemCodigo = 2,
+                UsuarioDestinoCodigo = 3,
+                PostagemCodigo = 2,
+                Pontos = 15
+            }, new UsuarioMovimentacao
+            {
+                Codigo = 4,
+                TipoMovimentacaoCodigo = 1,
+                DataCadastro = DateTime.Now,
+                UsuarioOrigemCodigo = 2,
+                UsuarioDestinoCodigo = 4,
+                PostagemCodigo = 1,
+                Pontos = 40
+            });
+            #endregion UsuarioMovimentacao
+  
+        }
 
 
     }

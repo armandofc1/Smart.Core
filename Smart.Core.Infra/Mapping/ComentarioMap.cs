@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Smart.Core.Domain.Entities;
 
@@ -26,9 +27,7 @@ namespace Smart.Core.Infra.Mapping
 
             builder.Property(e => e.DataCriacao).HasColumnName("DT_CRIACAO")
                 .IsRequired()
-                .HasColumnType("datetime")
-                .ValueGeneratedOnAdd()
-                .HasDefaultValueSql("getdate()");
+                .HasDefaultValue(DateTime.Now);
 
             builder.Property(e => e.Conteudo).HasColumnName("CONTEUDO")
                 .IsRequired()
@@ -36,7 +35,8 @@ namespace Smart.Core.Infra.Mapping
 
             builder.Property(e => e.Status).HasColumnName("STATUS")
                 .IsRequired()
-                .HasMaxLength(1);
+                .HasMaxLength(1)
+                .HasDefaultValue(1);
 
             builder.HasIndex(e => e.PostagemCodigo).HasName("COMENT_POST_CODIGO");
             builder.HasIndex(e => new { e.PostagemCodigo, e.UsuarioCodigo } ).HasName("COMENT_POST_USU");

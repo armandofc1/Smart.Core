@@ -10,8 +10,7 @@ namespace Smart.Core.Infra.Mapping
         {
             builder.ToTable("TB_PERFIL_USUARIO");
 
-            builder.HasKey(e => new { e.PerfilCodigo, e.UsuarioCodigo })
-                    .ForSqlServerIsClustered(false);
+            builder.HasKey(e => new { e.PerfilCodigo, e.UsuarioCodigo });
 
             builder.Property(e => e.PerfilCodigo).HasColumnName("CD_PERFIL")
                 .IsRequired()

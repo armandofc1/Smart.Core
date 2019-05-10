@@ -23,7 +23,8 @@ namespace Smart.Core.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View();
+            //return View();
+            return View(await _context.Categoria.ToListAsync());
         }
 
         public async Task<IActionResult> Add()
