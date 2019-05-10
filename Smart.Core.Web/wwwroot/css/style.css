@@ -1,0 +1,135 @@
+body {
+    padding-top: 56px;
+    background-color: #E5E9ED;
+}
+
+
+/* for demo purposes */
+
+
+/* Flip Cards CSS */
+
+.card-container {
+    display: grid;
+    perspective: 700px;
+}
+
+.card-flip {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    grid-template-areas: "frontAndBack";
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+    margin: 0px 5px 5px 0px;
+}
+
+.card-flip div {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.front {
+    grid-area: frontAndBack;
+}
+
+.back {
+    grid-area: frontAndBack;
+    transform: rotateY(-180deg);
+}
+
+.card-container:hover .card-flip {
+    transform: rotateY(180deg);
+}
+
+.card .cover {
+    height: 80px;
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
+}
+
+.card .cover img {
+    width: 100%;
+}
+
+.card .user {
+    border-radius: 50%;
+    display: block;
+    height: 120px;
+    margin: -55px auto 0;
+    overflow: hidden;
+    width: 120px;
+    border: 10px;
+}
+
+.card .user img {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 4px solid #FFFFFF;
+    width: 100%;
+    height: 100%;
+}
+
+.card .content {
+    padding: 20px;
+}
+
+.navbar-ct-blue {
+    background-color: #34ACDC;
+    background-color: rgba(52, 172, 220, 0.98);
+}
+
+
+/*----- Coments Area --------*/
+
+.comment-wrapper .media-list {
+    padding-inline-start: 0px;
+}
+
+.comment-wrapper .media-list .media img {
+    width: 64px;
+    height: 64px;
+    border: 2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+    border-bottom: 1px dashed #efefef;
+    margin-bottom: 25px;
+}
+
+.comment-wrapper .media-list .media .media-body {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+
+/*----- Post Meta --------*/
+
+.post-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    opacity: .7;
+    color: #000;
+    font-weight: 600;
+}
+
+.post-meta>li {
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 14px;
+}
+
+.post-meta>li:last-child {
+    margin-right: 0;
+}
+
+.post .post-meta a,
+.post-meta a {
+    color: #000;
+    transition: all 0.5s;
+    font-weight: 600;
+}
+
+.btn-postar {
+    margin: 5px 0px;
+    border: 0;
+}

@@ -23,7 +23,7 @@ namespace Smart.Core.Domain.Entities
         public string Foto { get; set; }
         public DateTime DataInicial { get; set; }
         public DateTime DataFinal { get; set; }
-        public string Status { get; set; }
+        public int Status { get; set; }
 
         public virtual ICollection<PostagemCategoria> PostagemCategorias { get; set; }
         public virtual ICollection<Comentario> Comentarios { get; set; }

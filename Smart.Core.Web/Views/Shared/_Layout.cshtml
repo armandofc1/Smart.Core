@@ -1,74 +1,139 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Smart.Core.Web</title>
+<html lang="pt-br">
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>@ViewData["Title"] - MVP - Smart Solutions</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- fontawesome core CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
 </head>
+
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!--Navbar -->
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color navbar-ct-blue fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Smart.Core.Web</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+            <a class="navbar-brand" href="index.html">MVP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">
+                            <i class="fa fa-home"></i> Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="far fa-file-alt"></i> Artigos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i> Conta
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                            <a class="dropdown-item" href="#">Meus dados</a>
+                            <a class="dropdown-item" href="#">Minhas postagens</a>
+                            <a class="dropdown-item" href="#">Comentários</a>
+                            <a class="dropdown-item" href="#">Pontuação</a>
+                            <a class="dropdown-item" href="#">Sair</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <!--/.Navbar -->
+    <!-- Page Content -->
+    <div class="container">
 
-    <partial name="_CookieConsentPartial" />
+        <div class="row">
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - Smart.Core.Web</p>
-        </footer>
+            <!-- Blog Entries Column -->
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-3">
+
+                <!-- Search Widget -->
+                <div class="input-group my-3">
+                    <span class="input-group-prepend">
+                        <div class="input-group-text bg-transparent border-right-0"><i class="fa fa-search"></i></div>
+                    </span>
+                    <input class="form-control py-2 border-left-0 border bg-outline-secondary" type="search" value="..." id="example-search-input">
+                    <span class="input-group-append">
+                        <button class="btn btn-secondary navbar-ct-blue border-left-0 border" type="button">
+                            Buscar
+                        </button>
+                    </span>
+                </div>
+
+                <!-- Categories Widget -->
+                <div class="card my-3">
+                    <h5 class="card-header">Categorias</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#">Web Design (100)</a></li>
+                                    <li><a href="#">HTML (40)</a></li>
+                                    <li><a href="#">Freebies (15)</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#">JavaScript (230)</a></li>
+                                    <li> <a href="#">CSS (45)</a></li>
+                                    <li><a href="#">Tutorials (67)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Widget -->
+                <div class="card my-3">
+                    <h5 class="card-header">Sobre</h5>
+                    <div class="card-body">
+                        Nossa missão é prover instruções úteis para conectar as pessoas ajudando-as a resolver os problemas do dia-a-dia, alcançando suas metas e seus sonhos.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
     </div>
+    <!-- /.container -->
+    <!-- Footer -->
+    <footer class="py-5 bg-secondary">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Smart Solutions 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>
