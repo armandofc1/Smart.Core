@@ -37,7 +37,7 @@
                     <div class="card-block content">
                         <h4 class="card-title">@post.Titulo</h4>
                         <p class="card-text">@post.Resumo</p>
-                        <a href="article.html" class="btn btn-primary text-center">Leia mais</a>
+                        @Html.ActionLink("Leia mais", "Details", "Postagem", new { codigo = @post.Codigo }, new { @class = "btn btn-primary text-center" });
                     </div>
                 </div>
                 <!-- End Card 1 Back -->

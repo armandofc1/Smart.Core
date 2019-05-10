@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card my-3">
+    <img class="card-img-top" src="images/postagens/blog-5.jpg" alt="Card image cap ">
+    <div class="card-body ">
+        <h2 class="card-title ">Qual a melhor divisão de treino?</h2>
+        <ul class="post-meta">
+            <li><i class="fas fa-calendar-alt"></i> 09/04/2019</li>
+            <li><i class="fas fa-tags"></i> <a href="#">Branding</a>, <a href="#">Design</a></li>
+            <li><i class="fas fa-comment"></i> <a href="#">3 Comentários</a></li>
+            <li><i class="fas fa-money-bill-alt"></i> 50 Pontos</li>
+        </ul>
+        <hr>
+        <div class="card-text ">
+            <small>é um processo para a vida toda.</small>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+
+            <div class"usuario_movimentacao">
+                <p>
+                    <span class="text-primary">Saldo: 360 pontos</span>
+                    <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa fa-american-sign-language-interpreting"></i> Doar pontos
+                    </button>
+                </p>
+                <div class="collapse md" id="collapseExample">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label class="sr-only">De Para</label>
+                            <p class="form-control-static">de <i class="fa fa-user"></i> @@mdores para <i class="fa fa-user"></i> @@jpsilva</p>
+                        </div>
+                        <div class="form-group mx-sm-3">
+                            <label for="pontos_doacao" class="sr-only">Pontos Doação</label>
+                            <input class="form-control" type="number" id="pontos_doacao" name="pontos_doacao" placeholder="10" min="10" max="100">
+                        </div>
+                        <button type="button" class="btn btn-outline-primary">Transferir</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-footer text-muted ">
+        Escrito em 09/04/2019 23:56:23 por
+        <a href="#">@@jpsilva</a>
+    </div>
+</div>
+
+<div class="card my-3">
+    <h5 class="card-header ">Comentários:</h5>
+    <div class="card-body ">
+        <div class="card-text comment-wrapper ">
+            <textarea class="form-control " placeholder="escreva um comentário... " rows="3 "></textarea>
+            <button type="button" class="btn btn-secondary navbar-ct-blue float-right btn-postar">Postar</button>
+            <div class="clearfix "></div>
+            <hr>
+            <ul class="media-list ">
+                <li class="media">
+                    <a href="# " class="float-left">
+                        <img src="images/usuarios/user_1.jpg" alt=" " class="rounded-circle ">
+                    </a>
+                    <div class="media-body ">
+                        <span class="text-muted float-right ">
+                            <small class="text-muted ">09/04/2019 13:56:36</small>
+                        </span>
+                        <strong class="text-dark">@@MartinoMont</strong>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, <a href="# ">#consecteturadipiscing </a>.
+                        </p>
+                    </div>
+                </li>
+                <li class="media">
+                    <a href="#" class="float-left">
+                        <img src="images/usuarios/user_2.jpg " alt=" " class="rounded-circle ">
+                    </a>
+                    <div class="media-body">
+                        <span class="text-muted float-right">
+                            <small class="text-muted">09/04/2019 09:35:06</small>
+                        </span>
+                        <strong class="text-dark">@@LaurenceCorreil</strong>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor <a href="# ">#ipsumdolor </a>adipiscing elit.
+                        </p>
+                    </div>
+                </li>
+                <li class="media ">
+                    <a href="#" class="float-left">
+                        <img src="images/usuarios/user_3.jpg" alt=" " class="rounded-circle">
+                    </a>
+                    <div class="media-body">
+                        <span class="text-muted float-right">
+                            <small class="text-muted ">09/04/2019 20:25:65</small>
+                        </span>
+                        <strong class="text-dark ">@@JohnNida</strong>
+                        <p>
+                            Lorem ipsum dolor <a href="# ">#sitamet</a> sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
