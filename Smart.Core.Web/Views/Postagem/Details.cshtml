@@ -29,7 +29,7 @@
         <hr>
         <div class="card-text ">
             <small>é um processo para a vida toda.</small>
-            @Model.Postagem.Conteudo
+            @Html.Raw(Model.Postagem.Conteudo)
             <div class"usuario_movimentacao">
                 <p>
                     <span class="text-primary">Saldo: 360 pontos</span>
@@ -61,8 +61,8 @@
 </div>
 
 <div class="card my-3">
-    <h5 class="card-header ">Comentários:</h5>
-    <div class="card-body ">
+    <h5 class="card-header">Comentários:</h5>
+    <div class="card-body">
         <div class="card-text comment-wrapper ">
             <textarea class="form-control " placeholder="escreva um comentário... " rows="3 "></textarea>
             <button type="button" class="btn btn-secondary navbar-ct-blue float-right btn-postar">Postar</button>
@@ -81,7 +81,7 @@
                             </span>
                             <strong class="text-dark">@@@comentario.Usuario.Login</strong>
                             <p>
-                                @comentario.Conteudo
+                                @Html.Raw(@comentario.Conteudo)
                             </p>
                         </div>
                     </li>

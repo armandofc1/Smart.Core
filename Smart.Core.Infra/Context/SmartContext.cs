@@ -221,40 +221,15 @@ namespace Smart.Core.Infra.Context
                 Titulo = "Qual a melhor divisão de treino?",
                 Subtitulo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 Resumo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                Conteudo = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!",
+                Conteudo = @"<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>",
                 Foto = "images/postagens/blog-5.jpg",
-                DataInicial = new DateTime(2019, 05, 1),//Convert.ToDateTime("01/05/2019"),
-                DataFinal = new DateTime(2019, 12, 31),//Convert.ToDateTime("31/12/2019"),
+                DataInicial = new DateTime(2019, 05, 1),
+                DataFinal = new DateTime(2019, 12, 31),
                 Status = 1
             }, new Postagem
             {
@@ -264,40 +239,15 @@ Lorem ipsum dolor sit amet,
                 Titulo = "Como obter fotos profissionais usando o celular",
                 Subtitulo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 Resumo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                Conteudo = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!",
-                Foto = "images/postagens/blog-5.jpg",
-                DataInicial = new DateTime(2019, 05, 1),//Convert.ToDateTime("01/05/2019"),
-                DataFinal = new DateTime(2019, 12, 31),//Convert.ToDateTime("31/12/2019"),
+                Conteudo = @"<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>",
+                Foto = "images/postagens/fotos_com_celular.jpg",
+                DataInicial = new DateTime(2019, 05, 1),
+                DataFinal = new DateTime(2019, 12, 31),
                 Status = 1
             }, new Postagem
             {
@@ -308,40 +258,15 @@ Lorem ipsum dolor sit amet,
                 Subtitulo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 Resumo = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 Lorem ipsum dolor sit amet, consectetur adipiscing",
-                Conteudo = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!
-
-Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.Reiciendis aliquid atque,
-                nulla ? Quos cum ex quis soluta,
-                a laboriosam.Dicta expedita corporis animi vero voluptate voluptatibus possimus,
-                veniam magni quis!",
-                Foto = "images/postagens/blog-5.jpg",
-                DataInicial = new DateTime(2019, 05, 1),//Convert.ToDateTime("01/05/2019"),
-                DataFinal = new DateTime(2019, 12, 31),//Convert.ToDateTime("31/12/2019"),
+                Conteudo = @"<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>",
+                Foto = "images/postagens/cortar_cabelo.jpg",
+                DataInicial = new DateTime(2019, 05, 1),
+                DataFinal = new DateTime(2019, 12, 31),
                 Status = 1
             });
             #endregion Postagens
