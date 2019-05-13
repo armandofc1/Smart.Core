@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Smart.Core.Domain.Entities.Categoria>
+                <!-- Categories Widget -->
+                <div class="card my-3">
+                    <h5 class="card-header">Categorias</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="list-unstyled mb-0">
+                                    @foreach (var categoria in Model)
+                                    {                                    
+                                        <li><a href="#">@categoria.Nome (@categoria.PostagemCategorias.Count)</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
