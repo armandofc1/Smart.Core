@@ -1,28 +1,35 @@
-﻿@{
-    ViewData["Title"] = "Details";
+﻿@model Smart.Core.Web.ViewModel.PostagemViewModel.DetailViewModel;
+@{
+    ViewData["Title"] = Model.Postagem.Titulo;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="card my-3">
-    <img class="card-img-top" src="~/images/postagens/blog-5.jpg" alt="Card image cap ">
+    <img class="card-img-top" src="~/@Model.Postagem.Foto" alt="Card image cap ">
     <div class="card-body ">
-        <h2 class="card-title ">Qual a melhor divisão de treino?</h2>
+        <h2 class="card-title ">@Model.Postagem.Titulo</h2>
         <ul class="post-meta">
-            <li><i class="fas fa-calendar-alt"></i> 09/04/2019</li>
-            <li><i class="fas fa-tags"></i> <a href="#">Branding</a>, <a href="#">Design</a></li>
-            <li><i class="fas fa-comment"></i> <a href="#">3 Comentários</a></li>
-            <li><i class="fas fa-money-bill-alt"></i> 50 Pontos</li>
+            <li><i class="fas fa-calendar-alt"></i>@Model.Postagem.DataCriacao</li>
+            <li><i class="fas fa-tags"></i>
+                @{int nCategoria = 0;}
+                @{var separador = string.Empty;}
+                @foreach (var postagemCategorias in Model.Postagem.PostagemCategorias)
+                {
+                    @if (nCategoria > 0)
+                    {
+                        separador = ",";
+                    }
+                    @separador<a href="#">@postagemCategorias.Categorias.Nome</a>
+                    nCategoria++;
+                }
+            </li>
+            <li><i class="fas fa-comment"></i> <a href="#">@Model.Postagem.Comentarios.Count Comentários</a></li>
+            <li><i class="fas fa-money-bill-alt"></i> @Model.Postagem.Movimentacoes.Select(c => c.Pontos).Sum() Pontos</li>
         </ul>
         <hr>
         <div class="card-text ">
             <small>é um processo para a vida toda.</small>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-
+            @Model.Postagem.Conteudo
             <div class"usuario_movimentacao">
                 <p>
                     <span class="text-primary">Saldo: 360 pontos</span>
@@ -48,8 +55,8 @@
         </div>
     </div>
     <div class="card-footer text-muted ">
-        Escrito em 09/04/2019 23:56:23 por
-        <a href="#">@@jpsilva</a>
+        Escrito em @Model.Postagem.DataCriacao por
+        <a href="#">@@@Model.Postagem.Usuario.Login</a>
     </div>
 </div>
 
@@ -62,48 +69,23 @@
             <div class="clearfix "></div>
             <hr>
             <ul class="media-list ">
-                <li class="media">
-                    <a href="# " class="float-left">
-                        <img src="~/images/usuarios/user_1.jpg" alt=" " class="rounded-circle ">
-                    </a>
-                    <div class="media-body ">
-                        <span class="text-muted float-right ">
-                            <small class="text-muted ">09/04/2019 13:56:36</small>
-                        </span>
-                        <strong class="text-dark">@@MartinoMont</strong>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, <a href="# ">#consecteturadipiscing </a>.
-                        </p>
-                    </div>
-                </li>
-                <li class="media">
-                    <a href="#" class="float-left">
-                        <img src="~/images/usuarios/user_2.jpg " alt=" " class="rounded-circle ">
-                    </a>
-                    <div class="media-body">
-                        <span class="text-muted float-right">
-                            <small class="text-muted">09/04/2019 09:35:06</small>
-                        </span>
-                        <strong class="text-dark">@@LaurenceCorreil</strong>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor <a href="# ">#ipsumdolor </a>adipiscing elit.
-                        </p>
-                    </div>
-                </li>
-                <li class="media ">
-                    <a href="#" class="float-left">
-                        <img src="~/images/usuarios/user_3.jpg" alt=" " class="rounded-circle">
-                    </a>
-                    <div class="media-body">
-                        <span class="text-muted float-right">
-                            <small class="text-muted ">09/04/2019 20:25:65</small>
-                        </span>
-                        <strong class="text-dark ">@@JohnNida</strong>
-                        <p>
-                            Lorem ipsum dolor <a href="# ">#sitamet</a> sit amet, consectetur adipiscing elit.
-                        </p>
-                    </div>
-                </li>
+                @foreach (var comentario in Model.Postagem.Comentarios)
+                {
+                    <li class="media">
+                        <a href="# " class="float-left">
+                            <img src="~/@comentario.Usuario.Foto" alt=" " class="rounded-circle ">
+                        </a>
+                        <div class="media-body ">
+                            <span class="text-muted float-right ">
+                                <small class="text-muted ">@comentario.DataCriacao</small>
+                            </span>
+                            <strong class="text-dark">@@@comentario.Usuario.Login</strong>
+                            <p>
+                                @comentario.Conteudo
+                            </p>
+                        </div>
+                    </li>
+                }
             </ul>
         </div>
     </div>

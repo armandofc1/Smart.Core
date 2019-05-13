@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Smart.Core.Domain.Entities;
 using Smart.Core.Infra.Context;
 using Smart.Core.Web.Models;
-using Smart.Core.Web.ViewModel;
+using Smart.Core.Web.ViewModel.HomeViewModel;
 using System.Diagnostics;
 
 namespace Smart.Core.Web.Controllers
@@ -25,7 +25,7 @@ namespace Smart.Core.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var postagens = await _context.Postagem.ToListAsync();
-            var model = new HomeViewModel {
+            var model = new DetailViewModel {
                 Postagens = postagens
             };
             return View(model);

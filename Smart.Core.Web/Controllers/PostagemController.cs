@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Smart.Core.Domain.Entities;
 using Smart.Core.Infra.Context;
 using Smart.Core.Web.Models;
+using Smart.Core.Web.ViewModel.PostagemViewModel;
 using System.Diagnostics;
 
 namespace Smart.Core.Web.Controllers
@@ -41,7 +42,11 @@ namespace Smart.Core.Web.Controllers
                 return NotFound();
             }
 
-            return View(postagem);
+            var model = new DetailViewModel
+            {
+                Postagem = postagem
+            };
+            return View(model);
         }
     }
 }

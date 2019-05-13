@@ -37,7 +37,8 @@ namespace Smart.Core.Infra.Context
             .AddJsonFile("appsettings.json")
             .Build();
 
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            //optionsBuilder.UseOracle(configuration.GetConnectionString("Oracle"));
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("SqlServer"));
             optionsBuilder.UseLazyLoadingProxies();
         }
 
@@ -492,7 +493,7 @@ Lorem ipsum dolor sit amet,
                 UsuarioCodigo = 5,
                 PostagemCodigo = 1,
                 DataCriacao = DateTime.Now,
-                Conteudo = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, <a href=\""#\"">#consecteturadipiscing</a>",
+                Conteudo = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, <a href=""#"">#consecteturadipiscing</a>",
                 Status = 1
             }, new Comentario
             {
@@ -500,7 +501,7 @@ Lorem ipsum dolor sit amet,
                 UsuarioCodigo = 6,
                 PostagemCodigo = 1,
                 DataCriacao = DateTime.Now,
-                Conteudo = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor <a href=\""#\"">#ipsumdolor</a> adipiscing elit.",
+                Conteudo = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor <a href=""#"">#ipsumdolor</a> adipiscing elit.",
                 Status = 1
             }, new Comentario
             {
@@ -508,7 +509,15 @@ Lorem ipsum dolor sit amet,
                 UsuarioCodigo = 7,
                 PostagemCodigo = 1,
                 DataCriacao = DateTime.Now,
-                Conteudo = @"Lorem ipsum dolor <a href=\""#\"">#ipsumdolor</a> sit amet, consectetur adipiscing elit.",
+                Conteudo = @"Lorem ipsum dolor <a href=""#"">#ipsumdolor</a> sit amet, consectetur adipiscing elit.",
+                Status = 1
+            }, new Comentario
+            {
+                Codigo = 4,
+                UsuarioCodigo = 6,
+                PostagemCodigo = 2,
+                DataCriacao = DateTime.Now,
+                Conteudo = @"Lorem ipsum dolor <a href=""#"">#ipsumdolor</a> sit amet, consectetur adipiscing elit.",
                 Status = 1
             });
             #endregion Comentario
@@ -552,7 +561,7 @@ Lorem ipsum dolor sit amet,
                 Pontos = 40
             });
             #endregion UsuarioMovimentacao
-  
+
         }
 
 

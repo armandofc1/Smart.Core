@@ -1,4 +1,4 @@
-﻿@model Smart.Core.Web.ViewModel.HomeViewModel;
+﻿@model Smart.Core.Web.ViewModel.HomeViewModel.DetailViewModel;
 @{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -37,7 +37,7 @@
                     <div class="card-block content">
                         <h4 class="card-title">@post.Titulo</h4>
                         <p class="card-text">@post.Resumo</p>
-                        @Html.ActionLink("Leia mais", "Details", "Postagem", new { codigo = @post.Codigo }, new { @class = "btn btn-primary text-center" });
+                        @Html.ActionLink("Leia mais", "Details", "Postagem", new { codigo = @post.Codigo }, new { @class = "btn btn-primary text-center" })
                     </div>
                 </div>
                 <!-- End Card 1 Back -->
