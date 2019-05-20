@@ -34,7 +34,7 @@ namespace Smart.Core.Infra.Context
         {
             var configuration = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json")
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .Build();
 
             //optionsBuilder.UseOracle(configuration.GetConnectionString("Oracle"));
