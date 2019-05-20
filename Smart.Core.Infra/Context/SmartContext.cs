@@ -38,7 +38,7 @@ namespace Smart.Core.Infra.Context
             .Build();
 
             //optionsBuilder.UseOracle(configuration.GetConnectionString("Oracle"));
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("SqlServer"));
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("defaultConnection"));
             //optionsBuilder.UseLazyLoadingProxies(); na api carrega dados desnecessarios
         }
 
