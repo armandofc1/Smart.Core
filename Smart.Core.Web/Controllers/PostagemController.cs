@@ -36,7 +36,13 @@ namespace Smart.Core.Web.Controllers
             }
 
             var postagem = await _context.Postagem
-                .FirstOrDefaultAsync(m => m.Codigo == codigo);
+                .Include(post => post.Usuario)
+                .Include(post => post.Comentarios)
+                    .ThenInclude(comentario => comentario.Usuario)
+                .Include(post => post.PostagemCategorias)
+                    .ThenInclude(post_categoria => post_categoria.Categorias)
+                .Include(post => post.Movimentacoes)              
+                .FirstOrDefaultAsync(post => post.Codigo == codigo);
             if (postagem == null)
             {
                 return NotFound();

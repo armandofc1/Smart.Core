@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smart.Core.Web", "Smart.Core.Web\Smart.Core.Web.csproj", "{17152656-63DE-4A24-8E82-1850D2BDD083}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smart.Core.Domain", "Smart.Core.Domain\Smart.Core.Domain.csproj", "{E69C2F7A-465C-40D4-819D-92388E6078E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smart.Core.Domain", "Smart.Core.Domain\Smart.Core.Domain.csproj", "{E69C2F7A-465C-40D4-819D-92388E6078E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smart.Core.Infra", "Smart.Core.Infra\Smart.Core.Infra.csproj", "{203104D7-F03D-41B5-8870-7D82C9C1D63B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smart.Core.Infra", "Smart.Core.Infra\Smart.Core.Infra.csproj", "{203104D7-F03D-41B5-8870-7D82C9C1D63B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smart.Core.Test", "Smart.Core.Test\Smart.Core.Test.csproj", "{C2E793DE-96D9-4D67-AA60-3BCEBB4C703D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smart.Core.Test", "Smart.Core.Test\Smart.Core.Test.csproj", "{C2E793DE-96D9-4D67-AA60-3BCEBB4C703D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smart.Core.Shared", "Smart.Core.Shared\Smart.Core.Shared.csproj", "{6CB0C5C3-F055-446A-B1AF-A08BF0C40C9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smart.Core.Shared", "Smart.Core.Shared\Smart.Core.Shared.csproj", "{6CB0C5C3-F055-446A-B1AF-A08BF0C40C9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

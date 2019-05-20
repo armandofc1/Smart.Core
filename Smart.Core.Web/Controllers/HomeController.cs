@@ -24,7 +24,7 @@ namespace Smart.Core.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var postagens = await _context.Postagem.ToListAsync();
+            var postagens = await _context.Postagem.Include(p=> p.Usuario).ToListAsync();
             var model = new DetailViewModel {
                 Postagens = postagens
             };

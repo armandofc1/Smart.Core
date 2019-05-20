@@ -39,7 +39,7 @@ namespace Smart.Core.Infra.Context
 
             //optionsBuilder.UseOracle(configuration.GetConnectionString("Oracle"));
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("SqlServer"));
-            optionsBuilder.UseLazyLoadingProxies();
+            //optionsBuilder.UseLazyLoadingProxies(); na api carrega dados desnecessarios
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
