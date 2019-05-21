@@ -43,6 +43,7 @@ namespace Smart.Core.Web
             services.AddDbContext<SmartContext>(options =>
             {
                 options.UseSqlServer(connString1);
+                //options.UseLazyLoadingProxies();
             });
 
         }
