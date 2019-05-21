@@ -37,10 +37,12 @@ namespace Smart.Core.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            var connString = Configuration.GetConnectionString("SQLCONNSTR_DefaultConnection");
+            var connString1 =  System.Configuration.ConfigurationManager.AppSettings["SQLCONNSTR_DefaultConnection"];
+
+            var connString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<SmartContext>(options =>
             {
-                options.UseSqlServer(connString);
+                options.UseSqlServer(connString1);
             });
 
         }
