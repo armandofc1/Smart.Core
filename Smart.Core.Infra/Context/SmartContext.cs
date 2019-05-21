@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
-using Smart.Core.Domain;
 using Smart.Core.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Proxies;
 using Smart.Core.Infra.Mapping;
@@ -25,21 +21,10 @@ namespace Smart.Core.Infra.Context
         public DbSet<UsuarioMovimentacao> UsuarioMovimentacao { get; set; }
         public DbSet<UsuarioPontuacao> UsuarioPontuacao { get; set; }
 
-        public SmartContext()
+        public SmartContext(DbContextOptions<SmartContext> options)
+        : base(options)
         {
             Database.EnsureCreated();
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var configuration = new ConfigurationBuilder()
-            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            .Build();
-
-            //optionsBuilder.UseOracle(configuration.GetConnectionString("Oracle"));
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("defaultConnection"));
-            //optionsBuilder.UseLazyLoadingProxies(); na api carrega dados desnecessarios
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
