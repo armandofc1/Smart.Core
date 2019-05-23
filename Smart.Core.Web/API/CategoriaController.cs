@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Smart.Core.Domain.Entities;
 using Smart.Core.Infra.Context;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Smart.Core.Web.API
 {
@@ -35,20 +34,37 @@ namespace Smart.Core.Web.API
             return await _context.Categoria.FirstOrDefaultAsync(c => c.Codigo == codigo);
         }
 
-        // POST: api/Categoria
+
+        // POST api/Categoria
+        /// <summary>
+        /// Cria uma categoria
+        /// </summary>
+        /// <remarks>
+        /// Exemplo:
+        ///
+        ///     POST api/Categoria
+        ///     {
+        ///        "nome": "Nome Categoria",
+        ///        "descricao": "Descrição Categoria"
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="value"></param>
+        /// <returns>Um novo item criado</returns>
+        /// <response code="201">Retorna o novo item criado</response>
+        /// <response code="400">Se o item não for criado</response> 
         [HttpPost]
-        public async Task<ActionResult<Categoria>> Post([FromBody] string value)
+        public async Task<ActionResult<Categoria>> Post([FromBody] JObject postModel)
         {
-            if (string.IsNullOrEmpty(value))
+            if (postModel == null)
             {
                 return BadRequest();
             }
 
-            Categoria postModel = JsonConvert.DeserializeObject<Categoria>(value);
             Categoria model = new Categoria()
             {
-                Nome = postModel.Nome,
-                Descricao = postModel.Descricao
+                Nome = postModel.GetValue("Nome").Value<string>(),
+                Descricao = postModel.GetValue("Descricao").Value<string>()
             };
 
             _context.Categoria.Add(model);
@@ -59,20 +75,18 @@ namespace Smart.Core.Web.API
 
         // PUT: api/Categoria/5
         [HttpPut("{codigo}")]
-        public async Task<ActionResult<Categoria>> Put(int codigo, [FromBody] string value)
+        public async Task<ActionResult<Categoria>> Put(int codigo, JObject postModel)
         {
-            if (string.IsNullOrEmpty(value))
+            if (postModel == null)
             {
                 return BadRequest();
             }
 
-            Categoria postModel = JsonConvert.DeserializeObject<Categoria>(value);
-
             var model =  _context.Categoria.FirstOrDefault(c => c.Codigo == codigo);
             if(model != null)
             {
-                model.Nome = postModel.Nome;
-                model.Descricao = postModel.Descricao;
+                model.Nome = postModel.GetValue("Nome").Value<string>();
+                model.Descricao = postModel.GetValue("Descricao").Value<string>();
             }
             await _context.SaveChangesAsync();
 

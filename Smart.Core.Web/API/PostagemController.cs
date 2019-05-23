@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Smart.Core.Domain.Entities;
 using Smart.Core.Infra.Context;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Smart.Core.Web.API
 {
@@ -38,22 +38,21 @@ namespace Smart.Core.Web.API
 
         // POST: api/Postagem
         [HttpPost]
-        public async Task<ActionResult<Categoria>> Post([FromBody] string value)
+        public async Task<ActionResult<Categoria>> Post([FromBody] JObject postModel)
         {
-            if (string.IsNullOrEmpty(value))
+            if (postModel == null)
             {
                 return BadRequest();
             }
 
-            Postagem postModel = JsonConvert.DeserializeObject<Postagem>(value);
             Postagem model = new Postagem()
             {
-                UsuarioCodigo = postModel.UsuarioCodigo,
+                UsuarioCodigo = postModel.GetValue("UsuarioCodigo").Value<int>(),
                 DataCriacao = DateTime.Now,
-                Titulo = postModel.Titulo,
-                Subtitulo = postModel.Subtitulo,
-                Resumo = postModel.Resumo,
-                Conteudo = postModel.Conteudo,
+                Titulo = postModel.GetValue("Titulo").Value<string>(),
+                Subtitulo = postModel.GetValue("Subtitulo").Value<string>(),
+                Resumo = postModel.GetValue("Resumo").Value<string>(),
+                Conteudo = postModel.GetValue("Conteudo").Value<string>(),
                 DataInicial = new DateTime(2019, 05, 1),
                 DataFinal = new DateTime(2019, 12, 31),
                 Status = 1
@@ -67,22 +66,20 @@ namespace Smart.Core.Web.API
 
         // PUT: api/Postagem/5
         [HttpPut("{codigo}")]
-        public async Task<ActionResult<Postagem>> Put(int codigo, [FromBody] string value)
+        public async Task<ActionResult<Postagem>> Put(int codigo, [FromBody] JObject postModel)
         {
-            if (string.IsNullOrEmpty(value))
+            if (postModel == null)
             {
                 return BadRequest();
             }
 
-            Postagem postModel = JsonConvert.DeserializeObject<Postagem>(value);
-
             var model = _context.Postagem.FirstOrDefault(c => c.Codigo == codigo);
             if (model != null)
             {
-                model.Titulo = postModel.Titulo;
-                model.Subtitulo = postModel.Subtitulo;
-                model.Resumo = postModel.Resumo;
-                model.Conteudo = postModel.Conteudo;
+                model.Titulo = postModel.GetValue("Titulo").Value<string>();
+                model.Subtitulo = postModel.GetValue("Subtitulo").Value<string>();
+                model.Resumo = postModel.GetValue("Resumo").Value<string>();
+                model.Conteudo = postModel.GetValue("Conteudo").Value<string>();
             }
             await _context.SaveChangesAsync();
 
